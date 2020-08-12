@@ -22,12 +22,13 @@ class Chewie extends StatefulWidget {
   Chewie({
     Key key,
     this.controller,
+      this.ignoreScreenWidth = false
   })  : assert(controller != null, 'You must provide a chewie controller'),
         super(key: key);
 
   /// The [ChewieController]
   final ChewieController controller;
-
+  final bool ignoreScreenWidth;
   @override
   ChewieState createState() {
     return ChewieState();
@@ -71,7 +72,7 @@ class ChewieState extends State<Chewie> {
   Widget build(BuildContext context) {
     return _ChewieControllerProvider(
       controller: widget.controller,
-      child: PlayerWithControls(),
+      child: PlayerWithControls(ignoreScreenWidth:widget.ignoreScreenWidth),
     );
   }
 
