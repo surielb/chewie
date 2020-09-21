@@ -9,7 +9,7 @@ import 'package:video_player/video_player.dart';
 
 class PlayerWithControls extends StatelessWidget {
   final bool ignoreScreenWidth; 
-  PlayerWithControls({Key key,this.ignoreScreenWidth}) : super(key: key);
+  PlayerWithControls({Key key,this.ignoreScreenWidth=false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
