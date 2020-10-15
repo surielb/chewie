@@ -22,12 +22,14 @@ class Chewie extends StatefulWidget {
   Chewie({
     Key key,
     this.controller,
+      this.rotateForAndroid= false,
       this.ignoreScreenWidth = false
   })  : assert(controller != null, 'You must provide a chewie controller'),
         super(key: key);
 
   /// The [ChewieController]
   final ChewieController controller;
+    final bool rotateForAndroid;
   final bool ignoreScreenWidth;
   @override
   ChewieState createState() {
@@ -128,7 +130,7 @@ class ChewieState extends State<Chewie> {
     );
 
     SystemChrome.setEnabledSystemUIOverlays([]);
-    if (isAndroid) {
+    if (isAndroid && widget.rotateForAndroid == true) {
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.landscapeLeft,
         DeviceOrientation.landscapeRight,
@@ -149,8 +151,10 @@ class ChewieState extends State<Chewie> {
 
     SystemChrome.setEnabledSystemUIOverlays(
         widget.controller.systemOverlaysAfterFullScreen);
+      if (isAndroid && widget.rotateForAndroid == true) {
     SystemChrome.setPreferredOrientations(
         widget.controller.deviceOrientationsAfterFullScreen);
+      }
   }
 }
 
