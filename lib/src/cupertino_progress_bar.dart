@@ -30,6 +30,10 @@ class _VideoProgressBarState extends State<CupertinoVideoProgressBar> {
       setState(() {});
     };
   }
+  @override
+  void setState(fn) {
+    if (mounted) super.setState(fn);
+  }
 
   VoidCallback listener;
   bool _controllerWasPlaying = false;

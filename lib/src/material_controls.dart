@@ -31,6 +31,10 @@ class _MaterialControlsState extends State<MaterialControls> {
 
   VideoPlayerController controller;
   ChewieController chewieController;
+  @override
+  void setState(fn) {
+    if (mounted) super.setState(fn);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -324,12 +328,9 @@ class _MaterialControlsState extends State<MaterialControls> {
 
   void _playPause() {
     bool isFinished;
-    if( _latestValue.duration != null)
-    {
+    if (_latestValue.duration != null) {
       isFinished = _latestValue.position >= _latestValue.duration;
-    }
-    else
-    {
+    } else {
       isFinished = false;
     }
 

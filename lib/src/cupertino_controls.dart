@@ -496,15 +496,12 @@ class _CupertinoControlsState extends State<CupertinoControls> {
   }
 
   void _playPause() {
-      bool isFinished;
-      if( _latestValue.duration != null)
-      {
-        isFinished = _latestValue.position >= _latestValue.duration;
-      }
-      else
-      {
-        isFinished = false;
-      }
+    bool isFinished;
+    if (_latestValue.duration != null) {
+      isFinished = _latestValue.position >= _latestValue.duration;
+    } else {
+      isFinished = false;
+    }
 
     setState(() {
       if (controller.value.isPlaying) {
@@ -548,6 +545,11 @@ class _CupertinoControlsState extends State<CupertinoControls> {
         _hideStuff = true;
       });
     });
+  }
+
+  @override
+  void setState(fn) {
+    if (mounted) super.setState(fn);
   }
 
   void _updateState() {
