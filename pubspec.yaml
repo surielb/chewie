@@ -9,7 +9,10 @@ environment:
 
 dependencies:
   open_iconic_flutter: ">=0.3.0 <0.4.0"
-  video_player: any
+  video_player:
+    git:
+      url: https://github.com/surielb/plugins.git
+      path: packages/video_player/video_player
   #">=1.0.1 <1.1.0"
   wakelock: ">=0.2.0 <0.3.0"
 
